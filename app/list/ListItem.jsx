@@ -14,7 +14,7 @@ export default function ListItem({ result }) {
             ✏️
           </Link>
           <span
-            onClick={async (event) => {
+            onClick={async (e) => {
               try {
                 const result = await fetch(`/api/delete?id=${item._id}`, {
                   method: "DELETE",
@@ -23,9 +23,9 @@ export default function ListItem({ result }) {
 
                 alert(message);
 
-                event.target.parentElement.opacity = 0;
+                e.target.parentElement.style.opacity = 0;
                 setTimeout(() => {
-                  event.target.parentElement.style.display = "none";
+                  e.target.parentElement.style.display = "none";
                 }, 1000);
               } catch (error) {
                 console.log(error);
@@ -34,7 +34,6 @@ export default function ListItem({ result }) {
           >
             🗑️
           </span>
-          <p>{item.author}</p>
         </div>
       ))}
     </div>

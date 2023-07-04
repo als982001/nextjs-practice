@@ -5,9 +5,6 @@ export default async function handler(req, res) {
   const db = (await connectDB).db("forum");
   const { id } = req.query;
 
-  console.log(req.query);
-  console.log(id);
-
   if (req.method === "DELETE") {
     try {
       await db.collection("post").deleteOne({ _id: new ObjectId(id) });

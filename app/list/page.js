@@ -1,6 +1,7 @@
 import { connectDB } from "@/utils/database";
-import Link from "next/link";
 import ListItem from "./ListItem";
+
+export const revalidate = 10;
 
 export default async function List() {
   let db = (await connectDB).db("forum");
