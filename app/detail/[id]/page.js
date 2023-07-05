@@ -2,6 +2,7 @@ import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
 import DetailLink from "./DetailLink";
 import URLCheckButton from "@/Conponents/URLCheckButton";
+import Comment from "./Comment";
 
 export default async function Detail(props) {
   const { id } = props.params;
@@ -16,6 +17,7 @@ export default async function Detail(props) {
       <p>{result.content}</p>
       <DetailLink />
       <URLCheckButton />
+      <Comment id={result._id.toString()} />
     </div>
   );
 }

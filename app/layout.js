@@ -9,6 +9,7 @@ import LoginBtn from "@/Conponents/LoginBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import LogoutBtn from "@/Conponents/LogoutBtn";
+import SignUpBtn from "@/Conponents/SignUpBtn";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +20,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
-  if (session) {
-    console.log(session);
-  }
 
   return (
     <html lang="en">
@@ -38,7 +36,10 @@ export default async function RootLayout({ children }) {
               <LogoutBtn />
             </>
           ) : (
-            <LoginBtn />
+            <>
+              <SignUpBtn />
+              <LoginBtn />
+            </>
           )}
           <BackButton />
           <RefreshButton />
