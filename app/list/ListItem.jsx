@@ -34,6 +34,7 @@ export default function ListItem({ result }) {
           >
             🗑️
           </span>
+          <p>{item.author}</p>
         </div>
       ))}
     </div>
